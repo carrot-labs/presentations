@@ -1,0 +1,41 @@
+{
+	"name": "angular-101",
+	"version": "1.0.0",
+	"description": "Angular 101 presentation",
+	"main": "gulpfile.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/grvcoelho/presentations/angular-101"
+	},
+	"keywords": [
+		"angular",
+		"presentation",
+		"slides",
+		"polymer",
+		"webcomponents"
+	],
+	"author": "@grvcoelho",
+	"license": "MIT",
+	"homepage": "https://github.com/grvcoelho/presentations/angular-101",
+	"devDependencies": {
+		"browser-sync": "^2.9.3",
+		"browserify": "^11.1.0",
+		"gulp": "^3.9.0",
+		"gulp-changed": "^1.3.0",
+		"gulp-imagemin": "^2.3.0",
+		"gulp-jade": "^1.1.0",
+		"gulp-jshint": "^1.11.2",
+		"gulp-notify": "^2.2.0",
+		"gulp-plumber": "^1.0.1",
+		"gulp-rename": "^1.2.2",
+		"gulp-rimraf": "^0.1.1",
+		"gulp-sourcemaps": "^1.5.2",
+		"gulp-stylus": "^2.0.6",
+		"gulp-watch": "^4.3.5",
+		"jeet": "^6.1.2",
+		"jshint-stylish": "^2.0.1",
+		"kouto-swiss": "^0.11.13",
+		"rupture": "^0.6.1",
+		"vinyl-source-stream": "^1.1.0"
+	}
+}
