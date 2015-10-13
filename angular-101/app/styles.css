@@ -14,3 +14,7 @@ syntax-highlight /deep/ code {
     font-size: 26px;
     tab-size: 4;
 }
+
+google-slide section.google-slide {
+    overflow: auto;
+}
