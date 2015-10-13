@@ -12,7 +12,7 @@ module.exports = {
 	},
 
 	markup: {
-		src: src + '/**/*.html',
+		src: src + '/**/*',
 		dest: dest
 	}
 };
