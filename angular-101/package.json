@@ -17,7 +17,7 @@
 	"author": "@grvcoelho",
 	"license": "MIT",
 	"homepage": "https://github.com/grvcoelho/quicksilver#readme",
-	"devdependencies": {
+	"devDependencies": {
 		"browser-sync": "^2.9.3",
 		"browserify": "^11.1.0",
 		"gulp": "^3.9.0",
