@@ -18,3 +18,8 @@ syntax-highlight /deep/ code {
 google-slide section.google-slide {
     overflow: auto;
 }
+
+.polymer-logo {
+    margin: 20px 0;
+    width: 250px;
+}

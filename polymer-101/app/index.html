@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 	<meta charset="utf-8">
-	<title>Angular 101 @ grvcoelho</title>
+	<title>Polymer 101 @ grvcoelho</title>
 	<link rel="shorcut icon" href="resources/images/favicon.ico">
 	<!-- WebComponents and Custom Elements -->
 	<script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
@@ -17,11 +17,11 @@
 
 <body unresolved>
 	<google-slides>
-		<div is="google-slide" class="googleblue layout vertical center center-justified">
-			<h1>AngularJs</h1>
+		<div is="google-slide" class="layout vertical center center-justified">
+			<h1>WebComponents & Polymer</h1>
 
 			<p>
-				<img src="resources/images/angular-logo.png">
+				<img class="polymer-logo" src="resources/images/polymer-logo.png">
 			</p>
 
 			<p>
@@ -36,221 +36,222 @@
 		<google-slide class="googlegreen layout vertical center center-justified">
 			<h1>Agenda</h1>
 
-			<p>- Web Development History</p>
-			<p>- AngularJs Features</p>
-			<p>- Two-way Data Binding</p>
-			<p>- Filters</p>
-			<p>- Modules</p>
-			<p>- Directives</p>
-			<p>- Controllers</p>
-			<p>- Routes</p>
+			<p>- História do HTML</p>
+			<p>- Como usar "componentes" hoje</p>
+			<p>- WebComponents & Polymer</p>
+			<p>- Templates</p>
+			<p>- Shadow Dom</p>
+			<p>- Custom Elements</p>
+			<p>- HTML Imports</p>
 		</google-slide>
 
-		<google-slide class="googlered layout vertical center center-justified">
-			<h1>Old web architecture</h1>
+		<google-slide class="layout vertical center center-justified">
+			<h1>História do HTML</h1>
 
-			<p>
-				<img src="resources/images/web-architecture.png">
-			</p>
+			<div class="layout horizontal center-justified">
+		        <div class="flex layout vertical start-justified">
+<syntax-highlight lang="html" theme="github">&lt;h1&gt;Heading&lt;/h1&gt;
+&lt;button&gt;Button&lt;/button&gt;
+&lt;p&gt;Paragraph&lt;/p&gt;
+&lt;input type="text"&gt;
+</syntax-highlight>
+				</div>
+
+				<div class="flex layout vertical start-justified">
+					<code>
+						<h3>Heading</h3>
+						<button>Button</button>
+						<p>Paragraph</p>
+						<input type="text">
+					</code>
+				</div>
+			</div>
 		</google-slide>
 
 		<google-slide class="googleblue layout vertical center center-justified">
-			<h1>New web architecture</h1>
+			<h1>Elementos mais complexos</h1>
 
-			<p>
-				<img src="resources/images/web-architecture-spa.png">
-			</p>
-		</google-slide>
-
-		<google-slide class="googlegreen layout vertical center center-justified">
-			<h1>API First web architecture</h1>
-
-			<p>
-				<img src="resources/images/modern-api-driven-environment.png">
-			</p>
-		</google-slide>
-
-		<google-slide class="googlered layout vertical center center-justified">
-			<h1>AngularJs</h1>
-
-			<p>- Better Code Organization</p>
-			<p>- Better Separation of Concerns</p>
-			<p>- Better User Experience</p>
-			<p>- Better Applications</p>
-		</google-slide>
-
-		<google-slide class="googleblue layout vertical center center-justified">
-			<h2>index.html</h2>
-
-<syntax-highlight lang="html" theme="github"><button>Click</button>
+			<div class="layout horizontal center-justified">
+				<div class="flex layout vertical start-justified">
+					<h3>index.html</h3>
+<syntax-highlight lang="html" theme="github"><div class="special-element">
+</div>
 </syntax-highlight>
 
-			<h2>scripts.js</h2>
-<syntax-highlight lang="javascript" theme="github">var button = document.querySelector('button');
-
-button.addEventListener('click', function sayHi() {
-	console.log('hi')
-});
-</syntax-highlight>
-		</google-slide>
-
-		<google-slide class="googlegreen layout vertical center center-justified">
-			<h2>index.html</h2>
-
-<syntax-highlight lang="html" theme="github"><button>Click</button>
-</syntax-highlight>
-
-			<h2>scripts.js (jQuery)</h2>
-<syntax-highlight lang="javascript" theme="github">var button = $('button');
-
-button.click(function sayHi() {
-	console.log('hi')
-});
-</syntax-highlight>
-		</google-slide>
-
-		<google-slide class="googlered layout vertical center center-justified">
-			<h2>index.html</h2>
-
-<syntax-highlight lang="html" theme="github"><button ng-click="sayHi()">Click</button>
-</syntax-highlight>
-
-			<h2>scripts.js</h2>
-<syntax-highlight lang="javascript" theme="github">...
-
-function sayHi() {
-	console.log('hi');
+					<h3>styles.css</h3>
+<syntax-highlight lang="css" theme="github">div {
+	color: blue;
 }
 </syntax-highlight>
-		</google-slide>
+				</div>
 
-		<google-slide class="googleblue layout vertical center center-justified">
-			<h1>Downloading the libraries</h1>
+				<div class="flex layout vertical start-justified">
+					<h3>scripts.js</h3>
+<syntax-highlight lang="javascript" theme="github">var element = document.querySelector('.special-element');
 
-			<p>Download AngularJS http://angularjs.org/</p>
-			<p>Download Twitter Bootstrap http://getbootstrap.com/</p>
+element.addEventListener('click', function() {
+	alert(12);
+});
+</syntax-highlight>
+				</div>
+			</div>
 		</google-slide>
 
 		<google-slide class="googlegreen layout vertical center center-justified">
-			<h2>index.html</h2>
+			<h1>Como usar "componentes" hoje?</h1>
 
-<syntax-highlight lang="html" theme="github">&lt;!DOCTYPE html&gt;
-&lt;html&gt; 
-￼￼￼&lt;head&gt; 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" /> 
-&lt;/head&gt;
-&lt;body&gt;
-	&lt;script type="text/javascript" src="js/angular.min.js"&gt;&lt;/script&gt;
-&lt;/body&gt; 
-&lt;/html&gt;
-</syntax-highlight>
+			<p>Em 3 simples passos</p>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>1. Nunca crie! Procure um plugin jQuery</h2>
+
+			<p>
+				<img src="resources/images/carousel-search.png">
+			</p>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>2. Copie e cole o código</h2>
+
+			<p>
+				<img src="resources/images/carousel-code.png">
+			</p>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>3. Torça para que funcione</h2>
+
+			<p>
+				<img id="gif" onclick="this.style.display = 'none'; document.getElementById('phil').style.display = 'inline-flex'" style="width: 400px;" src="resources/images/ross-anxious.gif">
+				<img id="phil" style="display: none; height: 350px;" src="resources/images/phil-happy.gif">
+			</p>
 		</google-slide>
 
 		<google-slide class="googlered layout vertical center center-justified">
+			<h1>Como usar componentes com WebComponents?</h1>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
 			<h2>index.html</h2>
 
-<syntax-highlight lang="html" theme="github">&lt;html ng-app="loja"&gt;
+<syntax-highlight lang="html" theme="github"><link rel="import" href="paper-carousel.html">
+
+<paper-carousel>
+	<paper-slide>Slide 1</paper-slide>
+	<paper-slide>Slide 2</paper-slide>
+	<paper-slide>Slide 3</paper-slide>
+</paper-carousel>
+</syntax-highlight>
+		</google-slide>
+
+		<google-slide class="googleblue layout vertical center center-justified">
+			<h1>Custom Elements</h1>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>Custom Elements</h2>
+
+<syntax-highlight language="html" theme="github"><google-map
+	latitude="37.779"
+	longitude="-122.3892">
+</google-map>
+
+<paper-button></paper-button>
+
+<facebook-like></facebook-like>
+</syntax-highlight>
+		</google-slide>
+
+		<google-slide class="googlegreen layout vertical center center-justified">
+			<h1>Templates</h1>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>Templates</h2>
+
+<syntax-highlight language="html" theme="github"><template>
+	<div class="google-map"></div>
 	...
-	&lt;script src="js/angular.min.js"&gt;&lt;/script&gt;
-	&lt;script src="app/app.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</syntax-highlight>
-
-			<h2>app/app.js</h2>
-<syntax-highlight lang="javascript" theme="github">angular
-	.module('loja', []);
+</template>
 </syntax-highlight>
 		</google-slide>
 
 		<google-slide class="googleblue layout vertical center center-justified">
-			<h2>index.html</h2>
-
-<syntax-highlight lang="html" theme="github"><div>
-	{{ 2 + 2 }}
-</div>
-</syntax-highlight>
+			<h1>HTML Imports</h1>
 		</google-slide>
 
-		<google-slide class="googlegreen layout vertical center center-justified">
-			<h2>index.html</h2>
+		<google-slide class="layout vertical center center-justified">
+			<h2>HTML Imports</h2>
 
-<syntax-highlight lang="html" theme="github"><div>
-	<input ng-model="message">
-	{{ message }}
-</div>
+<syntax-highlight language="html" theme="github"><link rel="import" href="google-map.html">
 </syntax-highlight>
 		</google-slide>
 
 		<google-slide class="googlered layout vertical center center-justified">
-			<h2>app/controllers.js</h2>
+			<h1>Shadow DOM</h1>
+		</google-slide>
 
-<syntax-highlight lang="javascript" theme="github">angular
-	.module('app')
-	.controller('LojaController', LojaController);
+		<google-slide class="layout vertical center center-justified">
+			<h2>Shadow DOM</h2>
 
-function LojaController() {
-	this.message = 'hello';
-}
-</syntax-highlight>
-
-			<h2>index.html</h2>
-
-<syntax-highlight lang="html" theme="github"><div ng-controller="LojaController as loja">
-	<input ng-model="loja.message">
-	{{ loja.message }}
-</div>
-</syntax-highlight>
+			<p>
+				<img src="resources/images/shadow-dom.png">
+			</p>
 		</google-slide>
 
 		<google-slide class="googleblue layout vertical center center-justified">
-			<h2>index.html</h2>
+			<h1>Usando Polymer</h1>
 
-<syntax-highlight lang="html" theme="github"><div ng-controller="LojaController as loja"> 
-	<h1>Nome do Produto</h1> 
-	<h2>$ Preço do Produto</h2> 
-	<p>Descrição do Produto</p> 
-</div> 
+			<p>Download Polymer http://polymer-project.org/</p>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<div class="layout horizontal center-justified">
+				<div class="flex layout vertical start-justified">
+					<h2>google-map.html</h2>
+
+<syntax-highlight lang="html" theme="github"><dom-module id="google-map">
+	<style>...</style>
+
+	<template>...</template>
+</dom-module>
+
+&lt;script&gt;
+	Polymer({
+		is: 'google-map'
+	});
+&lt;/script&gt;
 </syntax-highlight>
+			</div>
+
+			<div class="flex layout vertical start-justified">
+
+				<h2>index.html</h2>
+<syntax-highlight lang="html" theme="github"><link rel="import" href="google-map.html">
+...
+
+<google-map></google-map>
+</syntax-highlight>
+				</div>
+			</div>
 		</google-slide>
 
 		<google-slide class="googlegreen layout vertical center center-justified">
-			<h2>app/controllers.js</h2>
-
-<syntax-highlight lang="javascript" theme="github">function LojaController() {
-	var pedra = {
-		nome: 'Dodecahedron',
-		preco: 2.95,
-		descricao: 'Uma pedra preciosa com 12 lados brilhantes nas cores amarelo, rosa, verde e azul.'
-	};
-
-	this.produto = pedra;
-}
-</syntax-highlight>
+			<h1>Let's Code</h1>
 		</google-slide>
 
-		<google-slide class="googlered layout vertical center center-justified">
-			<h2>index.html</h2>
-
-<syntax-highlight lang="html" theme="github"><div ng-controller="LojaController as loja"> 
-	<h1>{{ loja.produto.nome }}</h1> 
-	<h2>$ {{ loja.produto.preco }}</h2> 
-	<p>{{ loja.produto.descricao }}</p> 
-</div> 
-</syntax-highlight>
-		</google-slide>
-
-		<div is="google-slide" class="googleblue layout vertical center center-justified">
+		<div is="google-slide" class="layout vertical center center-justified">
 			<h1>&lt;thank-you&gt;&lt;thank-you&gt;</h1>
 
 			<p>
-				<img src="resources/images/angular-logo.png">
+				<img class="polymer-logo" src="resources/images/polymer-logo.png">
 			</p>
 
 			<p>
 				<google-slide-author
 					avatar="resources/images/grvcoelho.jpg"
-					twitter="https://github.com/grvcoelho/presentations/angular-101"
+					twitter="https://github.com/grvcoelho/presentations/polymer"
 					plus="@grvcoelho">
 				</google-slide-author>
 			</p>
