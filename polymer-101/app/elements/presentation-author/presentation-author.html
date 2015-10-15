@@ -1,0 +1,216 @@
+<dom-module id="presentation-author">
+    <style type="text/css">
+        :host {
+            display: inline-block;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .shadow {
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            margin: 0.5rem 0 1rem 0;
+            background-color: #673AB7;
+            border-radius: 2px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            height: auto;
+            width: 300px;
+        }
+
+        .card-header {
+            background-color: #512DA8;
+            color: #fff;
+            height: 25px;
+            padding-left: 15px;
+        }
+
+        .card-content {
+            padding-top: 20px;
+            color: #fff;
+        }
+
+        .user-image {
+            border-radius: 50%;
+            border: 5px solid #FFF;
+            height: 35%;
+            width: 35%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .user-name {
+            font-size: 24px;
+            margin: 0px;
+        }
+
+        .user-profession {
+            font-size: 11px;
+            margin: 10px auto;
+        }
+
+        .card-desc {
+            font-size: 12px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .card-social {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .github {
+            flex: 5;
+            color: #D1C4E9;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .vseparator {
+            padding: 0;
+            height: 15px;
+            width: 1px;
+            margin: 0 auto;
+            background-color: #FFF;
+        }
+
+        .website {
+            flex: 5;
+            color: #D1C4E9;
+            text-align: center;
+            font-size: 15px;
+        }
+        .github > a,
+        .github > a:active,
+        .github > a:visited,
+        .github > a:link,
+        .website > a,
+        .website > a:active,
+        .website > a:visited,
+        .website > a:link {
+            font-size: 15px;
+            text-decoration: none;
+            color: #D1C4E9 !important;
+        }
+
+        .card-place {
+            color: #FFF;
+            margin: 0 auto;
+            width: 50%;
+            border: 1px solid #D1C4E9;
+            margin-bottom: 10px;
+            background-color: #512DA8;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 24px;
+        }
+    </style>
+
+    <template>
+        <article class="card shadow">
+            <div class="card-header"></div>
+
+            <div class="card-content">
+                <img class="user-image center" src="{{ image }}">
+
+                <p class="user-name center">{{ name }}</p>
+
+                <div class="card-social">
+                    <div class="github">
+                        <a href="http://www.github.com/{{ github }}" class="center">@ {{ github }} </a>
+                    </div>
+
+                    <div class="vseparator"></div>
+
+                    <div class="website">
+                        <a href="http://www.{{ website }}" class="center">{{ website }}</a>
+                    </div>
+                </div>
+
+                <p class="user-profession center">{{ profession }}</p>
+
+                <div class="card-desc">
+                    <p class="center">{{ description }}</p>
+                </div>
+            </div>
+
+            <div class="card-place">
+                <span class="center">{{ place }}</span>
+            </div>
+        </article>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+
+    	is: 'presentation-author',
+
+    	properties: {
+    		/**
+    		 * The user name for the card.
+    		 *
+    		 * @attribute name
+    		 * @type string
+    		 */
+    		name: '',
+    		/**
+    		 * The user profile image for the card.
+    		 *
+    		 * @attribute image
+    		 * @type string
+    		 */
+    		image: '',
+    		/**
+    		 * The user profession for the card.
+    		 *
+    		 * @attribute profession
+    		 * @type string
+    		 */
+    		profession: '',
+    		/**
+    		 * The user description for the card.
+    		 *
+    		 * @attribute description
+    		 * @type string
+    		 */
+    		description: '',
+    		/**
+    		 * The username for github, this will be passed without '@'.
+    		 *
+    		 * @attribute github
+    		 * @type string
+    		 */
+    		github: '',
+    		/**
+    		 * The user website link for the card, please use this without 'www'.
+    		 *
+    		 * @attribute name
+    		 * @type string
+    		 */
+    		website: '',
+    		/**
+    		 * The user location for the card.
+    		 *
+    		 * @attribute place
+    		 * @type string
+    		 */
+    		place: '',
+    	},
+    });
+</script>

@@ -1,0 +1,31 @@
+{
+  "name": "polymer-101",
+  "version": "1.0.0",
+  "homepage": "https://github.com/grvcoelho/presentations/polymer-101",
+  "authors": [
+    "@grvcoelho"
+  ],
+  "description": "Polymer 101 presentation",
+  "main": "app/index.html",
+  "moduleType": [],
+  "keywords": [
+    "polymer",
+    "presentation",
+    "slides",
+    "polymer",
+    "webcomponents"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.1.5",
+    "google-slides": "addyosmani/google-slides",
+    "syntax-highlight": "~1.0.0"
+  }
+}
