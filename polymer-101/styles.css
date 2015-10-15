@@ -1,0 +1,25 @@
+body {
+    font-family: 'RobotoDraft', 'Roboto', Helvetica, sans-serif;
+}
+
+.nav.google-slides /deep/ #preBtn,
+.nav.google-slides /deep/ #nextBtn {
+    background: #2196f3;
+	background: white;
+	color: black
+}
+
+syntax-highlight /deep/ code {
+    padding: 25px;
+    font-size: 26px;
+    tab-size: 4;
+}
+
+google-slide section.google-slide {
+    overflow: auto;
+}
+
+.polymer-logo {
+    margin: 20px 0;
+    width: 250px;
+}

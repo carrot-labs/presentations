@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+	<meta charset="utf-8">
+	<title>Polymer 101 @ grvcoelho</title>
+	<link rel="shorcut icon" href="resources/images/favicon.ico">
+	<!-- WebComponents and Custom Elements -->
+	<script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
+	<link rel="import" href="components/google-slides/google-slides.html">
+	<link rel="import" href="components/akyral-code/akyral-code.html">
+	<link rel="import" href="components/syntax-highlight/syntax-highlight.html">
+	<link rel="import" href="components/font-roboto/roboto.html">
+	<link rel="import" href="elements/presentation-author/presentation-author.html">
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body unresolved>
+	<google-slides>
+		<div is="google-slide" class="layout vertical center center-justified">
+			<h1>WebComponents & Polymer</h1>
+
+			<p>
+				<img class="polymer-logo" src="resources/images/polymer-logo.png">
+			</p>
+
+			<p>
+	            <google-slide-author
+	                avatar="resources/images/grvcoelho.jpg"
+	                twitter="https://pagar.me"
+	                plus="@grvcoelho">
+	            </google-slide-author>
+	        </p>
+		</div>
+
+		<google-slide class="googlegreen layout vertical center center-justified">
+			<h1>Agenda</h1>
+
+			<p>- História do HTML</p>
+			<p>- Como usar "componentes" hoje</p>
+			<p>- WebComponents & Polymer</p>
+			<p>- Templates</p>
+			<p>- Shadow Dom</p>
+			<p>- Custom Elements</p>
+			<p>- HTML Imports</p>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h1>História do HTML</h1>
+
+			<div class="layout horizontal center-justified">
+		        <div class="flex layout vertical start-justified">
+<syntax-highlight lang="html" theme="github">&lt;h1&gt;Heading&lt;/h1&gt;
+&lt;button&gt;Button&lt;/button&gt;
+&lt;p&gt;Paragraph&lt;/p&gt;
+&lt;input type="text"&gt;
+<ul></ul>
+<li></li>
+<a></a>
+<form></form>
+</syntax-highlight>
+				</div>
+
+				<div class="flex layout vertical start-justified">
+					<code>
+						<h3>Heading</h3>
+						<button>Button</button>
+						<p>Paragraph</p>
+						<input type="text">
+					</code>
+				</div>
+			</div>
+		</google-slide>
+
+		<google-slide class="googleblue layout vertical center center-justified">
+			<h1>Elementos mais complexos</h1>
+
+			<div class="layout horizontal center-justified">
+				<div class="flex layout vertical start-justified">
+					<h3>index.html</h3>
+<syntax-highlight lang="html" theme="github"><div class="special-element">
+</div>
+</syntax-highlight>
+
+					<h3>styles.css</h3>
+<syntax-highlight lang="css" theme="github">div {
+	color: blue;
+}
+</syntax-highlight>
+				</div>
+
+				<div class="flex layout vertical start-justified">
+					<h3>scripts.js</h3>
+<syntax-highlight lang="javascript" theme="github">var element = document.querySelector('.special-element');
+
+element.addEventListener('click', function() {
+	alert(12);
+});
+</syntax-highlight>
+				</div>
+			</div>
+		</google-slide>
+
+		<google-slide class="googlegreen layout vertical center center-justified">
+			<h1>Como usar "componentes" hoje?</h1>
+
+			<p>Em 3 simples passos</p>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>1. Nunca crie! Procure um plugin jQuery</h2>
+
+			<p>
+				<img src="resources/images/carousel-search.png">
+			</p>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>2. Copie e cole o código</h2>
+
+			<p>
+				<img src="resources/images/carousel-code.png">
+			</p>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>3. Torça para que funcione</h2>
+
+			<p>
+				<img id="gif" onclick="this.style.display = 'none'; document.getElementById('phil').style.display = 'inline-flex'" style="width: 400px;" src="resources/images/ross-anxious.gif">
+				<img id="phil" style="display: none; height: 350px;" src="resources/images/phil-happy.gif">
+			</p>
+		</google-slide>
+
+		<google-slide class="googlered layout vertical center center-justified">
+			<h1>Como usar componentes com WebComponents?</h1>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>index.html</h2>
+
+<syntax-highlight lang="html" theme="github"><link rel="import" href="paper-carousel.html">
+
+<paper-carousel>
+	<paper-slide>Slide 1</paper-slide>
+	<paper-slide>Slide 2</paper-slide>
+	<paper-slide>Slide 3</paper-slide>
+</paper-carousel>
+</syntax-highlight>
+		</google-slide>
+
+		<google-slide class="googleblue layout vertical center center-justified">
+			<h1>Custom Elements</h1>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>Custom Elements</h2>
+
+<syntax-highlight language="html" theme="github"><google-map
+	latitude="37.779"
+	longitude="-122.3892">
+</google-map>
+
+<paper-button></paper-button>
+
+<facebook-like></facebook-like>
+</syntax-highlight>
+		</google-slide>
+
+		<google-slide class="googlegreen layout vertical center center-justified">
+			<h1>Templates</h1>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>Templates</h2>
+
+<syntax-highlight language="html" theme="github"><template>
+	<div class="google-map"></div>
+	...
+</template>
+</syntax-highlight>
+		</google-slide>
+
+		<google-slide class="googleblue layout vertical center center-justified">
+			<h1>HTML Imports</h1>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>HTML Imports</h2>
+
+<syntax-highlight language="html" theme="github"><link rel="import" href="google-map.html">
+</syntax-highlight>
+		</google-slide>
+
+		<google-slide class="googlered layout vertical center center-justified">
+			<h1>Shadow DOM</h1>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<h2>Shadow DOM</h2>
+
+			<p>
+				<img src="resources/images/shadow-dom.png">
+			</p>
+		</google-slide>
+
+		<google-slide class="googleblue layout vertical center center-justified">
+			<h1>Usando Polymer</h1>
+
+			<p>Download Polymer http://polymer-project.org/</p>
+		</google-slide>
+
+		<google-slide class="layout vertical center center-justified">
+			<div class="layout horizontal center-justified">
+				<div class="flex layout vertical start-justified">
+					<h2>google-map.html</h2>
+
+<syntax-highlight lang="html" theme="github"><dom-module id="google-map">
+	<style>...</style>
+
+	<template>...</template>
+</dom-module>
+
+&lt;script&gt;
+	Polymer({
+		is: 'google-map'
+	});
+&lt;/script&gt;
+</syntax-highlight>
+			</div>
+
+			<div class="flex layout vertical start-justified">
+
+				<h2>index.html</h2>
+<syntax-highlight lang="html" theme="github"><link rel="import" href="google-map.html">
+...
+
+<google-map></google-map>
+</syntax-highlight>
+				</div>
+			</div>
+		</google-slide>
+
+		<google-slide class="googlegreen layout vertical center center-justified">
+			<h1>Let's Code</h1>
+		</google-slide>
+
+		<div is="google-slide" class="layout vertical center center-justified">
+			<h1>&lt;thank-you&gt;&lt;thank-you&gt;</h1>
+
+			<p>
+				<img class="polymer-logo" src="resources/images/polymer-logo.png">
+			</p>
+
+			<p>
+				<google-slide-author
+					avatar="resources/images/grvcoelho.jpg"
+					twitter="https://github.com/grvcoelho/presentations/polymer"
+					plus="@grvcoelho">
+				</google-slide-author>
+			</p>
+		</div>
+	</google-slides>
+</body>
+</html>

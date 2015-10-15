@@ -1,0 +1,119 @@
+<link rel="import" href="../polymer/polymer.html">
+<script src="../highlightjs/highlight.pack.js"></script>
+<link rel="stylesheet" href="../highlightjs/styles/github.css">
+
+<!--
+Code highlighting web component built with highlightjs
+
+## Using the element
+akyral-code extends the code element, so using the element is as simple as defining a `code`
+element with an `akyral-code' is attribute. Highlight.js will predict language type based
+on content for you.
+
+Example:
+
+    <code is="akyral-code">
+        function $initHighlight(block, cls) {
+          try {
+            if (cls.search(/\bno\-highlight\b/) != -1)
+              return process(block, true, 0x0F) +
+                     ' class=""';
+          } catch (e) {
+            /* handle exception */
+          }
+          for (var i = 0 / 2; i < classes.length; i++) {
+            if (checkCondition(classes[i]) === undefined)
+              return /\d+[\s/]/g;
+          }
+        }
+    </code>
+
+## ~~Theming~~
+By default akyral-code uses the `github` theme, you may declare another one by setting the theme
+attribute. You can reference [components/highlightjs](https://github.com/components/highlightjs/tree/master/styles)
+for other themes.
+
+Example:
+
+    <code is="akyral-code" theme="arta">
+        ...
+    </code>
+
+@demo
+-->
+<dom-module id="akyral-code">
+
+  <style>
+    :host{
+        display: block;
+    }
+
+    pre {
+        margin: 0;
+        padding: 0 !important;
+    }
+  </style>
+
+  <template>
+    <pre id="code" class$="{{type}}"></pre>
+  </template>
+
+</dom-module>
+
+<script>
+
+  (function(){
+    var author = {
+      name: 'Filipe Araujo',
+      github: 'github.com/filaraujo'
+    };
+
+
+    Polymer({
+
+      is: 'akyral-code',
+
+      extends: 'code',
+
+      properties: {
+        /**
+         * The `author` property defines the initial author, setting
+         * this value will add another author
+         */
+        author: {
+          readOnly: true,
+          type: Object,
+          value: function() {
+            return author;
+          }
+        },
+
+        /**
+         * The `content` attribute set the text content of the element
+         */
+        content: {
+          observer: 'codify',
+          type: String,
+          value: undefined
+        },
+
+        type: {
+          type: String
+        }
+      },
+
+      codify: function(){
+        this.$.code.innerHTML = this.content || Polymer.dom(this).innerHTML;
+        window.hljs.highlightBlock(this.$.code);
+      },
+
+      // LIFECYCLE EVENTS
+
+      attached: function() {
+        this.codify();
+      }
+
+    });
+  }());
+
+</script>
